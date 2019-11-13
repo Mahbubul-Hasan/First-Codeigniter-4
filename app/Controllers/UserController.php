@@ -44,14 +44,19 @@ class UserController extends BaseController
 			]);
 		}
 
-		$request["name"] = $this->request->getPost("name");
-		$request["email"] = $this->request->getPost("email");
-		$request["phone"] = $this->request->getPost("phone");
-		$request["password"] = $this->request->getPost("password");
-		$request["photo"] = "upload/" . $name;
+		$request = [
+			"name" => $this->request->getPost("name"),
+			"email" => $this->request->getPost("email"),
+			"phone" => $this->request->getPost("phone"),
+			"password" => $this->request->getPost("password"),
+			"photo" => "upload/" . $name,
+		];
 
 		$user = new User();
 		$user->saveUserInfo($request);
+
+
+		return view('/users/add-user');
 	}
 
 	//--------------------------------------------------------------------
