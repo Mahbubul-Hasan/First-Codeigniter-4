@@ -3,12 +3,17 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 class HomeController extends BaseController
 {
-	public function index()
+	// Show a list of user
+	public function index($page = "list")
 	{
-		return view('user/list');
+		if (!file_exists(APPPATH . "/Views/users/" . $page . ".php")) {
+			throw new PageNotFoundException($page);
+		}
+		return view('users/' . $page);
 	}
 
 	//--------------------------------------------------------------------
