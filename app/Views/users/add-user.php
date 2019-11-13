@@ -1,17 +1,21 @@
+<!-- <?php
+
+        use Config\Services;
+        ?> -->
 <!-- Avalon Hosting Services -->
 <!DOCTYPE html>
 <html>
 
     <body>
-
+        <!-- <?= Services::validation()->listErrors() ?> -->
         <h2>Add User</h2>
 
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="/add/user" method="POST" enctype="multipart/form-data">
             Name:<br>
             <input type="text" name="name" placeholder="Name">
             <br><br>
             Email:<br>
-            <input type="email" name="email" placeholder="Name">
+            <input type="email" name="email" placeholder="Email">
             <br><br>
             Phone:<br>
             <input type="text" name="phone" placeholder="Phone">

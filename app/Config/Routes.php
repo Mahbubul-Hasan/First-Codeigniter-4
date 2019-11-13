@@ -4,7 +4,7 @@ namespace Config;
 
 use Config\Services;
 use App\Controllers\Home;
-use App\Controllers\HomeController;
+use App\Controllers\UserController;
 
 /**
  * --------------------------------------------------------------------
@@ -77,8 +77,9 @@ $routes->setAutoRoute(true);
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'HomeController::index');
-$routes->get('/add/user', 'HomeController::addUser');
+$routes->get('/', 'UserController::index');
+$routes->match(["get", "post"], '/add/user', 'UserController::addUser');
+// $routes->get('/user/(:any)', 'UserController::index');
 
 /**
  * --------------------------------------------------------------------
