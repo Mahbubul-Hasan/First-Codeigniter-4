@@ -1,5 +1,5 @@
 <?php
-// Avalon Hosting Serveices
+// Avalon Hosting Services
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
@@ -14,6 +14,12 @@ class HomeController extends BaseController
 			throw new PageNotFoundException($page);
 		}
 		return view('users/' . $page);
+	}
+
+	// Show a form For adding a user
+	public function addUser()
+	{
+		return view('users/add-user');
 	}
 
 	//--------------------------------------------------------------------
